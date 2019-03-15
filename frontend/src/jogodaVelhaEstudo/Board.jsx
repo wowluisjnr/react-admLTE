@@ -8,16 +8,16 @@ export default class Board extends React.Component {
       return (
         <Square key={i}
           value={this.props.squares[i]}
-          className={this.winner(i) ? "square strong" : "square"}
+          className={this.strongWinner(i)[0]===i ? "square strong" : "square"}
           onClick={() => this.props.onClick(i)}
         />
       );
     }
     
-    winner(i){
-        const array = this.props.strong!==null ? this.props.strong.filter(j => j==i) : false
-        return array
-        // console.log(array)
+    strongWinner(i){
+      const test = this.props.strong
+      const array = this.props.strong!==null ? this.props.strong.filter(j => j==i) : false
+      return array
     }
     
     renderMatriz(){
@@ -38,7 +38,7 @@ export default class Board extends React.Component {
         return (
           <div>
               {this.renderMatriz()}
-              {/* {this.winner(0)} */}
+              {/* {this.strongWinner(0)} */}
 
           </div>
         );

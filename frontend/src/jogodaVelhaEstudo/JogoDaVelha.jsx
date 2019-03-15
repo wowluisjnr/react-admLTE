@@ -43,6 +43,12 @@ import Board from './Board'
         xIsNext: !this.state.xIsNext
       });
     }
+
+    noOneWinner(squares)
+    {
+      const isADraw = squares.filter(j => j!==null).length === 9
+      return isADraw
+    }
   
     jumpTo(step) {
       this.setState({
@@ -63,7 +69,7 @@ import Board from './Board'
       const current = history[this.state.stepNumber];
       const winner = calculateWinner(current.squares);
       const strong = winner ? winner[1] : null
-        console.log(strong)
+        //console.log(strong)
       const moves = history.map((step, move) => {
         const desc = move ?
           'Go to move #' + move + " in line " + step.locationClick[0]+", column "+step.locationClick[1] :
@@ -88,9 +94,13 @@ import Board from './Board'
   
       let status;
       if (winner) {
-        status = "Winner: " + winner;
+        status = "Winner: " + winner[0];
       } else {
         status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      }
+
+      if(this.noOneWinner(current.squares)){
+        alert("Is a draw!!!")
       }
   
       return (
