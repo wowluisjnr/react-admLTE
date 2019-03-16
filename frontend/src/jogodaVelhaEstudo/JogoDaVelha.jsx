@@ -1,7 +1,7 @@
 import './JogoDaVelha.css'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 
 import Board from './Board'
   

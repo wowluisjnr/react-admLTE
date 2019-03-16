@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <style>
+    .tamanho{
+        width: 600px;
+        color:cyan;
+    }
+    </style>
+
+</head>
+<body>
+       
+    <div class="tamanho">
+        <p>Grafico a seguir</p>
+        <canvas id="myChart"></canvas>
+    </div>
+    
+    
+
+    <script>
+
+        var data = {
+            datasets: [{
+                data: [10, 20, 30],
+                backgroundColor: ['red','yellow','blue'],
+                //borderAlign: ['inner','inner','inner'],
+                // borderColor:['red'],
+                // borderWidth:[15],
+                // weight:16,
+                // hoverBackgroundColor:['brown', 'yellow', 'cyan'],
+                hoverBorderColor:['brown', 'yellow', 'cyan'],
+                hoverBorderWidth:[12, 8, 16],
+                weight:30
+
+            }],            
+            labels: [
+                'Red',
+                'Yellow',
+                'Blue'
+            ]
+        }
+
+        var options = {
+            cutoutPercentage:70,
+            // rotation: -0.5 * Math.PI,
+            // circumference: 1 * Math.PI,
+            animation: {animateRotate: false, animateScale: true},
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            },
+            legend:{
+                // display: false,
+                position: 'left'
+                
+            },
+            title:{
+                display:true,
+                text: 'DESPESAS'
+
+            }
+        }
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        
+        var chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+    
+    </script>
+    
+</body>
+</html>

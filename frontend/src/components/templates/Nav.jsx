@@ -24,7 +24,7 @@ export default props =>
                 </a>
             </li>
             <li className="header">HEADER</li>
-            <li className="active">
+            <li>
                 <a href="#">
                     <i className="fa fa-link"></i>
                     <span>Link</span>

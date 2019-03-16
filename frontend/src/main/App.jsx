@@ -5,6 +5,7 @@ import '../assets/css/skins/skin-blue.min.css'
 
 import Header from '../components/templates/Header'
 import Nav from '../components/templates/Nav'
+import Content from '../components/templates/Content'
 
 import React from 'react'
 
@@ -12,5 +13,6 @@ export default props =>
     <div className="wrapper">
         <Header />
         <Nav />
+        <Content />
     </div>
 

@@ -1,19 +1,14 @@
 import React from 'react'
-import logo from '../../assets/imgs/logo.svg'
+import Logo from './Logo';
 
 export default props =>
 <header className="main-header">
-    {/* logo */}
-    <a href="#" className="logo">
-        <span className="logo-mini"><img src={logo} alt="logo"/></span>
-        <span className="logo-lg">FishFarm</span>
-    </a>
+    <Logo />
     {/* nav header */}
     <nav className="navbar navbar-static-top">
         <a href="#" className="sidebar-toggle"></a>
         <div className="navbar-custom-menu">
             <ul className="nav navbar-nav">
-
                 <li>
                     <a href="#">
                         <i className="fa fa-user"></i>
