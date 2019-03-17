@@ -9,7 +9,7 @@ export default props=>
 <ContentHeader/>
 <section className="content">
     <div className="row">
-        <div className="col-xs-12 offset-xs-1">
+        <div className="col-xs-12">
             <div className="box box-danger">
 
             <div className="box-header">
