@@ -2,4 +2,6 @@
     /* text-decoration: none; */
     color: black;
 }
-
+.link-widget:hover{
+    color: #00BFFF;
+}

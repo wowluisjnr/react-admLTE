@@ -30,17 +30,24 @@ export default class Charts extends React.Component{
     render(){
         if(!this.props.chartIsLine){
             return (
-                <div className="col-md-6">            
+                <div className="col-md-6">
+                
+                <p className="text-center"><strong>Por Categoria</strong></p>    
+                <div className="chart">       
                 <Doughnut                          
                     data={this.dataCharts(this.props.chartIsLine)}                            
                     options={this.optionsChart()} />
+                </div>
                 </div>
             )
         }
         return (
             <div className="col-md-6">
+                 <p className="text-center"><strong>Ao longo do ciclo</strong></p> 
+                 <div className="chart">
                 <Line                          
                     data={this.dataCharts(this.props.chartIsLine)} />
+                </div>
             </div>
         )
 

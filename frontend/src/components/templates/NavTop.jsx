@@ -1,12 +1,13 @@
 import React from 'react'
 import Logo from './Logo';
+import {Link} from 'react-router-dom'
 
 export default props =>
 <header className="main-header">
     <Logo />
     {/* nav header */}
     <nav className="navbar navbar-static-top">
-        <a href="#" className="sidebar-toggle"></a>
+        <Link to="/" className="sidebar-toggle"></Link>
         <div className="navbar-custom-menu">
             <ul className="nav navbar-nav">
                 <li>

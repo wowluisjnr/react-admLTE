@@ -3,16 +3,22 @@ import 'font-awesome/css/font-awesome.min.css'
 import '../assets/css/AdminLTE.min.css'
 import '../assets/css/skins/skin-blue.min.css'
 
-import Header from '../components/templates/Header'
+import NavTop from '../components/templates/NavTop'
 import Nav from '../components/templates/Nav'
-import Content from '../components/templates/Content'
+import Footer from '../components/templates/Footer'
 
 import React from 'react'
+import { HashRouter } from 'react-router-dom'
+
+import Router from './Router';
 
 export default props =>
-    <div className="wrapper">
-        <Header />
-        <Nav />
-        <Content />
-    </div>
+    <HashRouter>
+        <div className="wrapper">
+            <NavTop />
+            <Nav />
+            <Router />
+            <Footer />
+        </div>
+    </HashRouter>
 
