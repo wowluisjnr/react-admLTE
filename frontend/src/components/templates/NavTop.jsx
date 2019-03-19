@@ -2,8 +2,17 @@ import React from 'react'
 import Logo from './Logo';
 import {Link} from 'react-router-dom'
 
-export default props =>
-<header className="main-header">
+export default class NavTop extends React.Component{
+
+    sideBarCollapse(){
+        let element = document.getElementsByTagName('body')[0]
+        element = element.className.indexOf("sidebar-collapse") === -1 ? element.classList.add('sidebar-collapse') : element.classList.remove('sidebar-collapse')
+     }
+     
+
+render(){
+    return(
+    <header className="main-header">
     <Logo />
     {/* nav header */}
     <nav className="navbar navbar-static-top">
@@ -30,7 +39,9 @@ export default props =>
             </ul>
         </div>
     </nav>
-</header>
+</header>)
+}
+}
     
 
 

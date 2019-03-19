@@ -1,12 +1,9 @@
 import React from 'react'
 import Main from '../templates/Main';
-import Widgets from '../templates/Widgets';
-import {Link} from 'react-router-dom'
 import Charts from './Charts'
-
+import {Doughnut, Line} from 'react-chartjs-2'
 import './ViewFinance.css'
 import InfoBox from '../templates/infoBox/InfoBox';
-import ProgresBar from '../templates/infoBox/ProgresBar';
 import Box from '../templates/box/Box';
 
 
@@ -30,36 +27,28 @@ export default props =>
     <div className="row">
         <Box width={12} theme='box-danger' border={true} title='Despesas'>
             <div className="row">
-                <Charts />            
+                <Charts width={6} tipe={Doughnut} title='Despesas por categoria'
+                    data ={{
+                        labels:['Red', 'Blue', 'Green'],
+                        datasets: [{                            
+                            data: [300, 100, 1000],
+                            backgroundColor: ['red', 'blue', 'green'],            
+                            }]            
+                        }}
+                        options={{cutoutPercentage:70}}
+                /> 
+                <Charts width={6} tipe={Line} title='Despesas ao longo do ciclo' 
+                    data={{
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                        datasets: [{
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: [0, 10, 15, 20, 20, 30, 45]                                       
+                            }]
+                        }}                        
+                        />           
             </div>
         </Box>
 
-
-
-        {/* <div className="col-md-12">
-                <div className="box box-solid box-danger">
-                {/* <div class="overlay">
-                    <i class="fa fa-refresh fa-spin"></i>
-                </div> */}
-            {/*<div className="box-header with-border">
-                    <h3 className="box-title">Despesas</h3>
-                    <div className="box-tools pull-right">
-                        <button className="btn btn-box-tool">
-                            <i className="fa fa-minus"></i>
-                        </button>
-                        <button className="btn btn-box-tool">
-                            <i className="fa fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div className="box-body">
-                    <div className="row">
-                    <Charts />                        
-                    <Charts  chartIsLine={true}/>
-                    </div>
-                </div>
-            </div>                    
-        </div> */}
     </div>
 
 
