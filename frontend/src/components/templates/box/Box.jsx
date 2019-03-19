@@ -4,6 +4,9 @@ export default props=>
 
 <div className={`col-md-${props.width}`}>
     <div className={`box ${props.theme} ${props.border && 'box-solid'}`}>{/* box-solid  box-color collapsed-box*/}
+        {props.loading && <div class="overlay">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>}
         <div className={`box-header with-border ${props.alignTitle}`}>
             <h3 className="box-title">{props.title}</h3>
             {/* <div className="box-tools pull-right">             

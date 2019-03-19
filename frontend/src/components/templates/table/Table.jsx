@@ -10,11 +10,19 @@ export default props =>
                             <th key={valor}>
                                 {valor}
                             </th>)}             
-                    </tr>
+                    </tr>                    
                 </thead>
                 <tbody>
-                    {props.tableBody}
+                    {props.tableBody.map(valor => 
+                        <tr key={valor.id}>
+                            {Object.entries(valor).map(e => e[0]!=='id' && <td key={e[0]}>{e[1]}</td>)}
+                        </tr>)}
+                    <tr>
+                        <th className="text-right" colSpan={props.tableHeader.length-1} >Total</th>
+                        <td>R$ 0,00</td>
+                    </tr>
                 </tbody>
+                
             </table>
             
             </div>

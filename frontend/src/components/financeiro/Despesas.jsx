@@ -11,12 +11,15 @@ export default class Despesas extends React.Component{
         return th
     }
     renderTableBody(){
-        const teste = [{data:'10/20',descricao:'Tambaqui'}].map(valor => <tr>{Object.entries(valor).forEach(e=> `<td>${e[1]}</td>`)}</tr>)
-        return teste
+        const dados = [{id:1, data:'10/20',descricao:'Alevinos de Tambaqui', categoria:'Alevinos', valorUnd:'R$ 0,30',quantidade:'1000',valorTotal:'R$ 300,00'},
+        {id:2, data:'10/20',descricao:'Alevinos de Surubim', categoria:'Alevinos', valorUnd:'R$ 1,50',quantidade:'1000',valorTotal:'R$ 1.500,00'}
+        ]
+        
+        const dadosTabela = dados
+        return dadosTabela
     }
 
-    render(){
-        console.log(this.renderTableBody())
+    render(){        
     return(
     <div className="content-wrapper">
     <ContentHeader/>

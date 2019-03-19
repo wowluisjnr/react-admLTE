@@ -1,36 +1,62 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
-export default props =>
+export default class Nav extends React.Component{
+    constructor(props){
+        super(props)
+        this.state ={linkIsActive: true}
+    }
+
+
+teste = (match)=> {
+    let li = document.getElementsByName(match)
+    if(!match){
+        //console.log(li)             
+        return false                
+    }
+    console.log(match)   
+    
+    if(li.item(0)){
+        //console.log(li.item(0).className)
+        li.item(0).classList.add('active')
+    }
+    
+}
+
+    render(){
+
+        const changeLinkActive = (match, location) =>{
+            if(!match){
+                return false
+            }
+            let li = document.getElementsByName(`${match.path}`)
+            if(li.item(0)){
+                li.item(0).classList.add('active')
+            }
+            console.log(match, location, li.item(0))            
+        }
+
+        
+return(
 <aside className="main-sidebar">
     <section className="sidebar">
         <ul className="sidebar-menu tree">
             <li className="header">CONTROLE FINANCEIRO</li>
-            <li className="active">
-                <Link to="/">
-                    <i className="fa fa-link"></i>
+            <li className="" name="/home">
+                <NavLink to="/home" isActive={changeLinkActive}>
+                    <i className="fa fa-bar-chart"></i>
                     <span>Visão Geral</span>
-                </Link>
+                </NavLink>
             </li>
-            <li>
-                <Link to="/despesas">
-                    <i className="fa fa-link"></i>
+            <li className="" name="/despesas">
+                <NavLink to="/despesas" isActive={changeLinkActive}>
+                    <i className="fa fa-credit-card"></i>
                     <span>Despesas</span>
-                </Link>
+                </NavLink>
             </li>
-            {/* <li>
-                <a href="#">
-                    <i className="fa fa-link"></i>
-                    <span>Vendas</span>
-                </a>
-            </li>
-            <li className="header">CONTROLE DE PRODUÇÃO</li>
-            <li>
-                <a href="#">
-                    <i className="fa fa-link"></i>
-                    <span>Visão Geral</span>
-                </a>
-            </li> */}
         </ul>
     </section>
-</aside>
+</aside>)
+}
+
+}

@@ -16,7 +16,7 @@ export default class NavTop extends React.Component{
     handleClick() {
         let element = document.getElementsByTagName('body')[0]
         element = this.state.isToggleOn ? element.classList.add('sidebar-collapse') : element.classList.remove('sidebar-collapse')
-        console.log(this.state.isToggleOn)
+        
         this.setState(state => ({
           isToggleOn: !state.isToggleOn
         }));

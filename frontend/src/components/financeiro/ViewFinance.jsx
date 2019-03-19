@@ -47,7 +47,7 @@ render(){
         <Box width={12} 
             theme='box-danger' 
             border={true} 
-            title='Despesas' 
+            title={'Despesas'} 
             alignTitle='text-center' 
             elementFooter={<div>Footer Aqui</div>}>
             {/* box-body */}
