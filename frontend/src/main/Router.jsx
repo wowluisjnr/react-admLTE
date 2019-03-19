@@ -7,7 +7,7 @@ import ViewFinance from '../components/financeiro/ViewFinance';
 
 export default props =>
     <Switch>
-        <Route exact path='/home' component={ViewFinance} /> {/* exact = exatamente o path='/' */}
+        <Route exact path='/home' component={ViewFinance}/> {/* exact = exatamente o path='/' */}
         <Route path='/despesas' component={Despesas} />
         <Redirect from='*' to='/home' />
     </Switch>

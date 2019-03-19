@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
 export default class Nav extends React.Component{
     constructor(props){
@@ -25,15 +25,19 @@ teste = (match)=> {
 
     render(){
 
-        const changeLinkActive = (match, location) =>{
+        const changeLinkActive = (match) =>{
             if(!match){
                 return false
             }
             let li = document.getElementsByName(`${match.path}`)
+            let pai
             if(li.item(0)){
+                pai =li.item(0).parentNode
+                for(var i = 0; i < pai.children.length; i++){
+                    pai.children[i].classList.remove('active')                    
+                }
                 li.item(0).classList.add('active')
-            }
-            console.log(match, location, li.item(0))            
+            }                        
         }
 
         

@@ -3,6 +3,15 @@ import ContentHeader from '../templates/ContentHeader';
 import Table from '../templates/table/Table';
 import Box from '../templates/box/Box';
 
+const baseUrl = 'http://localhost:3001/despesas'
+const initialState = {
+    expenses: { data:'',
+                descricao:'', 
+                categoria:'', 
+                valorUnd:0, 
+                quantidade: 0 },
+    list: []
+}
 
 
 export default class Despesas extends React.Component{
