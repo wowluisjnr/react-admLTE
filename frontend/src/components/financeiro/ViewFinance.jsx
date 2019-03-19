@@ -7,50 +7,62 @@ import InfoBox from '../templates/infoBox/InfoBox';
 import Box from '../templates/box/Box';
 
 
-export default props => 
-<Main>    
+export default class ViewFinance extends React.Component {
+    renderDataDog(){
+        const dataDog = {
+            labels:['Red', 'Blue', 'Green'],
+            datasets: [{                            
+                data: [300, 100, 1000],
+                backgroundColor: ['red', 'blue', 'green'],            
+                }]            
+            }
+        return dataDog
+    }
+    renderDataLine(){
+        const dataLine = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 15, 20, 20, 30, 45]                                       
+                }]
+            }
+        return dataLine
+    }
+
+render(){
+    return(
+    <Main>    
     <div className="row">         
         <InfoBox width = {4}
                 icon = 'fa-bank' 
                 stats = 'R$ 10.000,00' 
                 subject = 'Saldo' 
                 theme = 'bg-aqua'/>
-
         <InfoBox width={4} icon = 'fa-line-chart' stats = 'R$ 20.000,00' subject = 'Vendas' theme = 'bg-green'>
                 {/* <ProgresBar percent= '50%' description = '50% Increase in 30 Days'/> */}
-        </InfoBox>
-        
+        </InfoBox>        
         <InfoBox width={4} icon='fa-pie-chart' stats='R$ 10.000,00' subject='Despesas' theme='bg-red'/>        
     </div> 
-
-
     <div className="row">
-        <Box width={12} theme='box-danger' border={true} title='Despesas'>
+        <Box width={12} 
+            theme='box-danger' 
+            border={true} 
+            title='Despesas' 
+            alignTitle='text-center' 
+            elementFooter={<div>Footer Aqui</div>}>
+            {/* box-body */}
             <div className="row">
-                <Charts width={6} tipe={Doughnut} title='Despesas por categoria'
-                    data ={{
-                        labels:['Red', 'Blue', 'Green'],
-                        datasets: [{                            
-                            data: [300, 100, 1000],
-                            backgroundColor: ['red', 'blue', 'green'],            
-                            }]            
-                        }}
+                <Charts width={6} tipe={Doughnut} title='Despesas por categoria' 
+                    data ={this.renderDataDog}
                         options={{cutoutPercentage:70}}
                 /> 
                 <Charts width={6} tipe={Line} title='Despesas ao longo do ciclo' 
-                    data={{
-                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                        datasets: [{
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: [0, 10, 15, 20, 20, 30, 45]                                       
-                            }]
-                        }}                        
+                    data={this.renderDataLine}                        
                         />           
             </div>
+
         </Box>
-
     </div>
-
-
-
-</Main>
+</Main>)
+}
+}

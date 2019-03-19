@@ -1,14 +1,26 @@
 import React from 'react'
 import Logo from './Logo';
 import {Link} from 'react-router-dom'
+import './navTop.css'
 
 export default class NavTop extends React.Component{
 
-    sideBarCollapse(){
+    constructor(props) {
+        super(props);
+        this.state = {isToggleOn: true};
+    
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this);
+      }   
+          
+    handleClick() {
         let element = document.getElementsByTagName('body')[0]
-        element = element.className.indexOf("sidebar-collapse") === -1 ? element.classList.add('sidebar-collapse') : element.classList.remove('sidebar-collapse')
-     }
-     
+        element = this.state.isToggleOn ? element.classList.add('sidebar-collapse') : element.classList.remove('sidebar-collapse')
+        console.log(this.state.isToggleOn)
+        this.setState(state => ({
+          isToggleOn: !state.isToggleOn
+        }));
+      }
 
 render(){
     return(
@@ -16,7 +28,8 @@ render(){
     <Logo />
     {/* nav header */}
     <nav className="navbar navbar-static-top">
-        <Link to="/" className="sidebar-toggle"></Link>
+        <a className="sidebar-toggle" onClick={this.handleClick}></a>{/* Quando redusido a classe terá que ser sidebar-open */}
+        
         <div className="navbar-custom-menu">
             <ul className="nav navbar-nav">
                 <li>

@@ -2,29 +2,29 @@ import React from 'react'
 
 export default props=>
 
-
 <div className={`col-md-${props.width}`}>
     <div className={`box ${props.theme} ${props.border && 'box-solid'}`}>{/* box-solid  box-color collapsed-box*/}
-        <div className="box-header with-border text-center">
+        <div className={`box-header with-border ${props.alignTitle}`}>
             <h3 className="box-title">{props.title}</h3>
-            <div className="box-tools pull-right">                
-                <button className="btn btn-box-tool">
+            {/* <div className="box-tools pull-right">             
+                
+                {props.collapse && <button className="btn btn-box-tool">
                     <i className="fa fa-minus"></i>
-                </button>
-                <button className="btn btn-box-tool">
+                </button>}
+                {props.close && <button className="btn btn-box-tool">
                     <i className="fa fa-times"></i>
-                </button>
-                {/* <span class="label label-primary">Label</span> */}
-            </div>            
+                </button>}
+                
+                <span class="label label-primary">Label</span>
+            </div>             */}
         </div>        
         <div className="box-body">
-            {props.children}
-            {/* The body of the box */}
+            {props.children}            
         </div>
         
-        <div className="box-footer">
-            The footer of the box
-        </div>
+        {props.elementFooter && <div className="box-footer">
+            {props.elementFooter}
+        </div>}
     </div>
 </div>
 
