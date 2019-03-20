@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.min.css'
 import '../assets/css/AdminLTE.min.css'
 import '../assets/css/skins/skin-blue.min.css'

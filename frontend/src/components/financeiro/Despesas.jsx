@@ -3,13 +3,15 @@ import axios from 'axios'
 import ContentHeader from '../templates/ContentHeader';
 import Table from '../templates/table/Table';
 import Box from '../templates/box/Box';
+import Modal from '../templates/modal/Modal';
 
 
 
 function numeroParaMoeda(valor){
     let inteiro = null, decimal = null, c = null, j = null;
     let aux = new Array();
-    valor = ""+valor;
+    if(!isNaN(valor))
+    {valor = ""+valor;
     c = valor.indexOf(".",0);
     if(c > 0){
        inteiro = valor.substring(0,c);
@@ -34,7 +36,7 @@ function numeroParaMoeda(valor){
           decimal = decimal+"0";
        }
     }         
-    valor = "R$ "+inteiro+","+decimal;   
+    valor = "R$ "+inteiro+","+decimal;}   
     return valor;    
  }
 
@@ -109,7 +111,14 @@ export default class Despesas extends React.Component{
                 <Table tableHeader={this.renderTableHeader()} tableBody={this.renderTableBody()} somaTotal={numeroParaMoeda(this.state.somaTotal)}/>
             </Box>
         </div>
+        <Modal show={true}/>
+
+
     </section>
     </div>)
 }
 }
+
+
+
+//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
