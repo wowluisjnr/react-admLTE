@@ -9,9 +9,10 @@ export default props=>
         </div>}
         <div className={`box-header with-border ${props.alignTitle}`}>
             <h3 className="box-title">{props.title}</h3>
+            {props.button &&
             <div className="box-tools pull-right">
-                <button className="btn btn-default"><i className="fa fa-plus"></i> Adicionar</button>
-            </div>
+                <button className="btn btn-default" onClick={props.onClick}><i className="fa fa-plus"></i> Adicionar</button>
+            </div>}
             {/* <div className="box-tools pull-right">             
                 
                 {props.collapse && <button className="btn btn-box-tool">

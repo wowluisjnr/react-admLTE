@@ -1,9 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import ContentHeader from '../templates/ContentHeader';
 import Table from '../templates/table/Table';
 import Box from '../templates/box/Box';
-import Modal from '../templates/modal/Modal';
+import Main from '../templates/Main';
 
 
 
@@ -47,14 +46,14 @@ const baseUrl = 'http://localhost:3001/despesas'
 const initialState = {
     expenses: { 
                 data:'',
-                descricao:'', 
-                lote:'',
+                descricao:'',                 
                 categoria:'', 
                 valorUnd:0, 
                 quantidade: 0, 
                 valorTotal:0 },
     list: [],
-    somaTotal: 0
+    somaTotal: 0,
+    showModal: false
 }
 
 
@@ -79,6 +78,22 @@ export default class Despesas extends React.Component{
         })
     }
 
+    save(){
+        const expenses = this.state.expenses
+        const method = expenses.id ? 'put' : 'post'
+        const url = expenses.id ? `${baseUrl}/${expenses.id}` : baseUrl
+        axios[method](url, expenses)
+            .then(resp => {
+                const list = this.getUpdatedList(resp.data)
+                this.setState({expenses: initialState.expenses, list})
+                this.closeModal()
+                //pode fazer busca no backend
+            })           
+
+        //incluir post
+        //alterar put        
+    }
+
     clear() {
         this.setState({ expenses: initialState.expenses })
     }
@@ -87,9 +102,14 @@ export default class Despesas extends React.Component{
         if(add) list.unshift(expenses)
         return list
     } 
+    updateField(event){
+        const expenses ={...this.state.expenses}
+        expenses[event.target.name] = event.target.value
+        this.setState({expenses})
+    }
 
     renderTableHeader(){
-        const th = ['Data','Descrição','Lote','Categoria','Valor unitário', 'Quantidade','Valor Total']
+        const th = ['Data','Descrição','Categoria','Valor unitário', 'Quantidade','Valor Total']
         return th
     }
     renderTableBody(){
@@ -101,22 +121,100 @@ export default class Despesas extends React.Component{
         return this.state.list
     }
 
+    handleClick(){   
+        
+        this.setState({showModal: true})
+        
+    }
+    closeModal(){
+        this.setState({showModal: false})
+    }
+
+    renderForm(){
+        return(
+            <div>
+            <div className="form-group">
+                <label> Data:</label>
+                <div className="input-group date">
+                    <div className="input-group-addon"><i className="fa fa-calendar"></i></div>
+                    <input type="date" className="form-control pull-right" 
+                    name="data" value={this.state.expenses.data} onChange={e=>this.updateField(e)}/>
+                </div>
+            </div>
+            <div className="form-group">
+                <label> Descrição:</label>
+                <input type="text" className="form-control" 
+                name="descricao" value={this.state.expenses.descricao} onChange={e=>this.updateField(e)}/>
+            </div>
+            <div className="form-group">
+                <label> Categoria:</label>
+                <select className="form-control"
+                 name="categoria" onChange={e=>this.updateField(e)}>
+                    <option value="Alevinos">Alevinos</option>
+                    <option value="Ração">Ração</option>
+                    <option value="Infraestrutura">Infraestrutura</option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Funcionário">Funcionário</option>
+                </select>
+            </div>
+            <div className="form-group">
+                <label> Valor unitário:</label>
+                <input type="number" className="form-control"
+                 name="valorUnd" value={this.state.expenses.valorUnd} onChange={e=>this.updateField(e)}/>
+            </div>
+            <div className="form-group">
+                <label> Quantidade:</label>
+                <input type="number" className="form-control"
+                 name="quantidade" value={this.state.expenses.quantidade} onChange={e=>this.updateField(e)}/>
+            </div>
+            </div>
+            )
+    }
+
+    renderModal(){
+        return (<div className="modal fade in" style={{display: this.state.showModal ? 'block' : 'none'}}>
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <button className="close"  onClick={() => this.closeModal()}><span>x</span></button>
+                        <h4 className="modal-title">Default Modal</h4>
+                    </div>
+                    <div className="modal-body">
+                         {this.renderForm()}
+                    </div>
+                    <div className="modal-footer">
+                    <button className="btn btn-default pull-left" onClick={() => this.closeModal()} >Close</button>
+                    <button className="btn btn-primary" onClick={e => this.save(e)}>Save changes</button>
+                    </div>
+                </div>            
+            </div>
+        </div>)
+    }
+
     render(){        
     return(
-    <div className="content-wrapper">
-    <ContentHeader/>
-    <section className="content">
+        <React.Fragment>
+    <Main>
         <div className="row">
-            <Box width={10} theme='box-danger' title='Despesas'>            
-                <Table tableHeader={this.renderTableHeader()} tableBody={this.renderTableBody()} somaTotal={numeroParaMoeda(this.state.somaTotal)}/>
+            <Box width={10} theme='box-danger' title='Despesas' button={true} onClick={() => this.handleClick()} >            
+                <Table onClick={valor => this.remove(valor)}
+                 tableHeader={this.renderTableHeader()} tableBody={this.renderTableBody()} somaTotal={numeroParaMoeda(this.state.somaTotal)}/>
             </Box>
-        </div>
-        <Modal show={true}/>
-
-
-    </section>
-    </div>)
+        </div> 
+           
+    </Main>
+    {this.renderModal()}
+    </React.Fragment>
+    )
 }
+
+remove(user) {
+    axios.delete(`${baseUrl}/${user.id}`).then(resp => {
+        const list = this.getUpdatedList(user, false)
+        this.setState({ list })
+    })
+}
+
 }
 
 

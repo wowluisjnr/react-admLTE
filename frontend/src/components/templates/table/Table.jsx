@@ -23,7 +23,7 @@ export default props =>
                             <button className='btn bg-warning btn-sm'>
                                 <i className='fa fa-pencil'></i>
                             </button> 
-                            <button className='btn bg-danger btn-sm'>
+                            <button className='btn bg-danger btn-sm' onClick={() => props.onClick(valor)}>
                                 <i className='fa fa-trash'></i>
                             </button>
                         </td>

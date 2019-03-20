@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default props=>
-<div className="modal fade in" style={{display:`${props.show ? 'block' : 'none' }`}}>
+<div className={`modal fade ${props.show ? 'in' : ''} `} style={{display:`${props.show ? 'block' : 'none' }`}}>
     <div className="modal-dialog">
         <div className="modal-content">
             <div className="modal-header">
