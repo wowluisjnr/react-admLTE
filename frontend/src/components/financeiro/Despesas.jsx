@@ -1,31 +1,102 @@
 import React from 'react'
+import axios from 'axios'
 import ContentHeader from '../templates/ContentHeader';
 import Table from '../templates/table/Table';
 import Box from '../templates/box/Box';
 
+
+
+function numeroParaMoeda(valor){
+    let inteiro = null, decimal = null, c = null, j = null;
+    let aux = new Array();
+    valor = ""+valor;
+    c = valor.indexOf(".",0);
+    if(c > 0){
+       inteiro = valor.substring(0,c);
+       decimal = valor.substring(c+1,valor.length);
+    }else{
+       inteiro = valor;
+    }
+    for (j = inteiro.length, c = 0; j > 0; j-=3, c++){
+       aux[c]=inteiro.substring(j-3,j);
+    }
+    inteiro = "";
+    for(c = aux.length-1; c >= 0; c--){
+       inteiro += aux[c]+'.';
+    }       
+    inteiro = inteiro.substring(0,inteiro.length-1);        
+    decimal = parseInt(decimal);
+    if(isNaN(decimal)){
+       decimal = "00";
+    }else{
+       decimal = ""+decimal;
+       if(decimal.length === 1){
+          decimal = decimal+"0";
+       }
+    }         
+    valor = "R$ "+inteiro+","+decimal;   
+    return valor;    
+ }
+
+
+
+
 const baseUrl = 'http://localhost:3001/despesas'
 const initialState = {
-    expenses: { data:'',
+    expenses: { 
+                data:'',
                 descricao:'', 
+                lote:'',
                 categoria:'', 
                 valorUnd:0, 
-                quantidade: 0 },
-    list: []
+                quantidade: 0, 
+                valorTotal:0 },
+    list: [],
+    somaTotal: 0
 }
 
 
 export default class Despesas extends React.Component{
+
+    state = { ...initialState }    
+
+    componentWillMount() {
+        axios(baseUrl).then(resp => {
+            let resultado = resp.data
+            let somaTotal = 0
+            resultado.map( obj =>
+                {
+                    Object.defineProperty(obj, 'valorTotal',{
+                    enumerable:true, 
+                    writable:true, //
+                    value: obj.quantidade*obj.valorUnd
+                    })
+                    somaTotal +=obj.valorTotal                    
+            })           
+            this.setState({ list: resultado, somaTotal:somaTotal })
+        })
+    }
+
+    clear() {
+        this.setState({ expenses: initialState.expenses })
+    }
+    getUpdatedList(expenses, add = true) {
+        const list = this.state.list.filter(u => u.id !== expenses.id)
+        if(add) list.unshift(expenses)
+        return list
+    } 
+
     renderTableHeader(){
-        const th = ['Data','Descrição','Categoria','Valor unitário', 'Quantidade','Valor Total']
+        const th = ['Data','Descrição','Lote','Categoria','Valor unitário', 'Quantidade','Valor Total']
         return th
     }
     renderTableBody(){
-        const dados = [{id:1, data:'10/20',descricao:'Alevinos de Tambaqui', categoria:'Alevinos', valorUnd:'R$ 0,30',quantidade:'1000',valorTotal:'R$ 300,00'},
-        {id:2, data:'10/20',descricao:'Alevinos de Surubim', categoria:'Alevinos', valorUnd:'R$ 1,50',quantidade:'1000',valorTotal:'R$ 1.500,00'}
-        ]
-        
-        const dadosTabela = dados
-        return dadosTabela
+        const temp = this.state 
+        temp.list.map(obj => {
+            obj.valorUnd = numeroParaMoeda(obj.valorUnd)
+            obj.valorTotal =  numeroParaMoeda(obj.valorTotal)})  
+        //console.log(temp)           
+        return this.state.list
     }
 
     render(){        
@@ -34,8 +105,8 @@ export default class Despesas extends React.Component{
     <ContentHeader/>
     <section className="content">
         <div className="row">
-            <Box width={12} theme='box-danger' title='Despesas'>            
-                <Table tableHeader={this.renderTableHeader()} tableBody={this.renderTableBody()} />
+            <Box width={10} theme='box-danger' title='Despesas'>            
+                <Table tableHeader={this.renderTableHeader()} tableBody={this.renderTableBody()} somaTotal={numeroParaMoeda(this.state.somaTotal)}/>
             </Box>
         </div>
     </section>

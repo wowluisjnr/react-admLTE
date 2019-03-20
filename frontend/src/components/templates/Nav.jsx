@@ -58,6 +58,11 @@ return(
                     <span>Despesas</span>
                 </NavLink>
             </li>
+            <li>
+                <a href="">
+                    <i className="fa fa-tags"></i><span>Categorias</span>
+                </a>
+            </li>
         </ul>
     </section>
 </aside>)
