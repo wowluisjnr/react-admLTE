@@ -23,6 +23,60 @@
       "categoria": "Ração",
       "valorUnd": 1.5,
       "quantidade": 1000
+    },
+    {
+      "data": "2018-10-22",
+      "descricao": "Calcário saco de 25 kg para preparação do tanque",
+      "categoria": "Funcionário",
+      "valorUnd": "12",
+      "quantidade": "8",
+      "valorTotal": 96,
+      "id": 4
+    },
+    {
+      "data": "",
+      "descricao": "Cal hidratada",
+      "categoria": "",
+      "valorUnd": "20",
+      "quantidade": "4",
+      "valorTotal": 80,
+      "id": 5
+    },
+    {
+      "data": "2018-10-22",
+      "descricao": "Gasolina para buscar material",
+      "categoria": "",
+      "valorUnd": "1",
+      "quantidade": "30",
+      "valorTotal": 30,
+      "id": 6
+    },
+    {
+      "data": "2019-03-25",
+      "descricao": "Sal para tratamento dos peixes",
+      "categoria": "",
+      "valorUnd": "12",
+      "quantidade": "3",
+      "valorTotal": 36,
+      "id": 7
+    },
+    {
+      "data": "",
+      "descricao": "Ração Guabi alevinos 2-3mm 36%",
+      "categoria": "Ração",
+      "valorUnd": "105",
+      "quantidade": "2",
+      "valorTotal": 210,
+      "id": 8
+    },
+    {
+      "data": "",
+      "descricao": "Ração Supra agua 2.5mm 42%",
+      "categoria": "",
+      "valorUnd": "129.26",
+      "quantidade": "1",
+      "valorTotal": 129.26,
+      "id": 9
     }
   ]
 }

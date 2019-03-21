@@ -38,6 +38,11 @@ function numeroParaMoeda(valor){
     valor = "R$ "+inteiro+","+decimal;}   
     return valor;    
  }
+ function moedaParaNumero(valor)
+{
+    //return isNaN(valor) == false ? parseFloat(valor) : 'teste ok'
+    return isNaN(valor) == false ? parseFloat(valor) : parseFloat(valor.replace("R$","").replace(".","").replace(",","."))
+}
 
 
 
@@ -62,7 +67,7 @@ export default class Despesas extends React.Component{
     state = { ...initialState }    
 
     componentWillMount() {
-        axios(baseUrl).then(resp => {
+            axios(baseUrl).then(resp => {
             let resultado = resp.data
             let somaTotal = 0
             resultado.map( obj =>
@@ -80,13 +85,19 @@ export default class Despesas extends React.Component{
 
     save(){
         const expenses = this.state.expenses
+        expenses.valorTotal = moedaParaNumero(expenses.valorUnd)* moedaParaNumero(expenses.quantidade)
+        //console.log(valorTotal )
+        const somaTotal =  moedaParaNumero(expenses.valorTotal) + this.state.somaTotal
+        //console.log(somaTotal)
+        this.setState({somaTotal: somaTotal})
         const method = expenses.id ? 'put' : 'post'
         const url = expenses.id ? `${baseUrl}/${expenses.id}` : baseUrl
         axios[method](url, expenses)
             .then(resp => {
                 const list = this.getUpdatedList(resp.data)
-                this.setState({expenses: initialState.expenses, list})
                 this.closeModal()
+                this.setState({expenses: initialState.expenses, list})
+                
                 //pode fazer busca no backend
             })           
 
@@ -196,7 +207,7 @@ export default class Despesas extends React.Component{
         <React.Fragment>
     <Main>
         <div className="row">
-            <Box width={10} theme='box-danger' title='Despesas' button={true} onClick={() => this.handleClick()} >            
+            <Box width={12} theme='box-danger' title='Despesas' button={true} onClick={() => this.handleClick()} >            
                 <Table onClick={valor => this.remove(valor)}
                  tableHeader={this.renderTableHeader()} tableBody={this.renderTableBody()} somaTotal={numeroParaMoeda(this.state.somaTotal)}/>
             </Box>
@@ -208,9 +219,13 @@ export default class Despesas extends React.Component{
     )
 }
 
-remove(user) {
-    axios.delete(`${baseUrl}/${user.id}`).then(resp => {
-        const list = this.getUpdatedList(user, false)
+remove(valor) {    
+    //colocar um alerta aqui com opção de cancelar 
+    let somaTotal = this.state.somaTotal - moedaParaNumero( valor.valorTotal)
+    this.setState({somaTotal:somaTotal})
+
+    axios.delete(`${baseUrl}/${valor.id}`).then(resp => {
+        const list = this.getUpdatedList(valor, false)
         this.setState({ list })
     })
 }
