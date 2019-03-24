@@ -5,33 +5,29 @@ export default props =>
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        {props.tableHeader
-                        .map(valor=>
-                            <th key={valor}>
-                                {valor}
-                            </th>)}             
+                        {props.tableHeader.map(thValor=>
+                            <th key={thValor}>{thValor}</th>)}             
                     </tr>                    
                 </thead>
                 <tbody>
-                    {props.tableBody.map(valor => 
-                        <tr key={valor.id}>
-                            {Object.entries(valor).map(e => 
-                            {if(e[0]!=='id'&& e[0]!=='total' ){
-                                return <td key={e[0]}>{e[1]}</td>}})                            
+                    {props.tableBody.map(obj => 
+                        <tr key={obj.id}>
+                            {Object.entries(obj).map(property => 
+                            {if(property[0]!=='id'){
+                                return <td key={property[0]}>{property[1]}</td>
+                            }})                            
                         }
                         <td>
-                            <button className='btn bg-warning btn-sm'>
+                            <button className='btn bg-warning btn-sm' onClick={() => props.onClick(obj,false)}>
                                 <i className='fa fa-pencil'></i>
                             </button> 
-                            <button className='btn bg-danger btn-sm' onClick={() => props.onClick(valor)}>
+                            <button className='btn bg-danger btn-sm' onClick={() => props.onClick(obj, true)}>
                                 <i className='fa fa-trash'></i>
                             </button>
                         </td>
                         </tr>)}
-                    <tr>
-                        <th className="text-right" colSpan={props.tableHeader.length-1} >Total</th>
-                        <td>{props.somaTotal}</td>
-                    </tr>
+                        {/* Children para adicionar linhas personalizadas <tr>*/}
+                        {props.children}
                 </tbody>
                 
             </table>

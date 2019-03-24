@@ -46,22 +46,22 @@ return(
     <section className="sidebar">
         <ul className="sidebar-menu tree">
             <li className="header">CONTROLE FINANCEIRO</li>
-            <li className="" name="/home">
+            <li name="/home">
                 <NavLink to="/home" isActive={changeLinkActive}>
                     <i className="fa fa-bar-chart"></i>
                     <span>Visão Geral</span>
                 </NavLink>
             </li>
-            <li className="" name="/despesas">
+            <li name="/despesas">
                 <NavLink to="/despesas" isActive={changeLinkActive}>
                     <i className="fa fa-credit-card"></i>
                     <span>Despesas</span>
                 </NavLink>
             </li>
-            <li>
-                <a href="">
+            <li name="/categorias">
+                <NavLink  to="/categorias" isActive={changeLinkActive}>
                     <i className="fa fa-tags"></i><span>Categorias</span>
-                </a>
+                </NavLink>
             </li>
         </ul>
     </section>

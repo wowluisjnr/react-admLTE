@@ -3,27 +3,17 @@ import React from 'react'
 export default props=>
 
 <div className={`col-md-${props.width}`}>
-    <div className={`box ${props.theme} ${props.border && 'box-solid'}`}>{/* box-solid  box-color collapsed-box*/}
-        {props.loading && <div class="overlay">
-            <i class="fa fa-refresh fa-spin"></i>
+    <div className={`box ${props.theme} ${props.border && 'box-solid'} ${props.collapse && 'collapse-box'}`}>{/* box-solid  box-color collapsed-box*/}
+        {props.loading && <div className="overlay">
+            <i className="fa fa-refresh fa-spin"></i>
         </div>}
         <div className={`box-header with-border ${props.alignTitle}`}>
             <h3 className="box-title">{props.title}</h3>
             {props.button &&
             <div className="box-tools pull-right">
                 <button className="btn btn-default" onClick={props.onClick}><i className="fa fa-plus"></i> Adicionar</button>
-            </div>}
-            {/* <div className="box-tools pull-right">             
-                
-                {props.collapse && <button className="btn btn-box-tool">
-                    <i className="fa fa-minus"></i>
-                </button>}
-                {props.close && <button className="btn btn-box-tool">
-                    <i className="fa fa-times"></i>
-                </button>}
-                
-                <span class="label label-primary">Label</span>
-            </div>             */}
+            </div>} 
+            {props.collapse && <button className='btn btn-box-tool'><i className="fa fa-minus"></i></button>}           
         </div>        
         <div className="box-body">
             {props.children}            

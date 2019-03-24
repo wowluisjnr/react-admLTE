@@ -5,15 +5,15 @@ export default props=>
     <div className="modal-dialog">
         <div className="modal-content">
             <div className="modal-header">
-                <button className="close"><span>x</span></button>
-                <h4 className="modal-title">Default Modal</h4>
+                <button className="close" onClick={()=>props.onClick(false)}><span>x</span></button>
+                <h4 className="modal-title">{props.title}</h4>
             </div>
             <div className="modal-body">
-                <p>One fine body...</p>
+                {props.children}
             </div>
             <div className="modal-footer">
-            <button className="btn btn-default pull-left" >Close</button>
-            <button className="btn btn-primary">Save changes</button>
+            <button className="btn btn-default pull-left" onClick={() => props.onClick(false)} >Cancelar</button>
+            <button className="btn btn-primary" onClick={(e) => props.onClick(e,true)}>Salvar</button>
             </div>
         </div>
     
