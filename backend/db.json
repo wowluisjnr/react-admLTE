@@ -1,69 +1,427 @@
 {
   "despesas": [
     {
-      "id": 1,
-      "data": "10/10/2018",
+      "data": "22/10/2018",
+      "descricao": "Saco de Calcário 25kg",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "12",
+      "quantidade": "8",
+      "valorTotal": 96,
+      "id": 1
+    },
+    {
+      "data": "22/10/2018",
+      "descricao": "Cal hidratada",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "20",
+      "quantidade": "4",
+      "valorTotal": 80,
+      "id": 2
+    },
+    {
+      "data": "22/10/2019",
+      "descricao": "Gasolina para buscar material",
+      "categoria": {
+        "id": 4,
+        "nome": "Gasolina",
+        "icone": "",
+        "cor":"orange"
+      },
+      "valorUnd": "30",
+      "quantidade": "1",
+      "valorTotal": 30,
+      "id": 3
+    },
+    {
+      "data": "25/10/2018",
+      "descricao": "Sal",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "12",
+      "quantidade": "3",
+      "valorTotal": 36,
+      "id": 4
+    },
+    {
+      "data": "26/10/2018",
+      "descricao": "Ração Guabi alevinos 2-3mm 36%",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "105",
+      "quantidade": "2",
+      "valorTotal": 210,
+      "id": 5
+    },
+    {
+      "data": "26/10/2018",
+      "descricao": "Ração Supra Aqua 2,5mm 42%",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "129.26",
+      "quantidade": "1",
+      "valorTotal": 129.26,
+      "id": 6
+    },
+    {
+      "data": "26/10/2018",
+      "descricao": "Linha 0.5mm 1083m",
+      "categoria": {
+        "id": 3,
+        "nome": "Infraestrutura",
+        "icone": "",
+        "cor":"brown"
+      },
+      "valorUnd": "25",
+      "quantidade": "2",
+      "valorTotal": 50,
+      "id": 7
+    },
+    {
+      "data": "26/10/2018",
+      "descricao": "Termômetro para água",
+      "categoria": {
+        "id": 3,
+        "nome": "Infraestrutura",
+        "icone": ""
+      },
+      "valorUnd": "20",
+      "quantidade": "1",
+      "valorTotal": 20,
+      "id": 8
+    },
+    {
+      "data": "26/10/2018",
+      "descricao": "Medidor de PH e Amonia toxica",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "49.20",
+      "quantidade": "1",
+      "valorTotal": 49.2,
+      "id": 9
+    },
+    {
+      "data": "26/10/2018",
+      "descricao": "Gasolina - Buscar Peixes",
+      "categoria": {
+        "id": 4,
+        "nome": "Gasolina",
+        "icone": "",
+        "cor":"orange"
+      },
+      "valorUnd": "5.09",
+      "quantidade": "30",
+      "valorTotal": 152.7,
+      "id": 10
+    },
+    {
+      "data": "27/10/2018",
+      "descricao": "Alevinos de Pintado",
+      "categoria": {
+        "id": 2,
+        "nome": "Alevinos",
+        "icone": "",
+        "cor":"aqua"
+      },
+      "valorUnd": "1.5",
+      "quantidade": "2000",
+      "valorTotal": 3000,
+      "id": 11
+    },
+    {
+      "data": "27/10/2018",
       "descricao": "Alevinos de Tambaqui",
-      "categoria": "Alevinos",
-      "valorUnd": 0.3,
-      "quantidade": 1000
+      "categoria": {
+        "id": 2,
+        "nome": "Alevinos",
+        "icone": "",
+        "cor":"aqua"
+      },
+      "valorUnd": "0.35",
+      "quantidade": "1000",
+      "valorTotal": 350,
+      "id": 12
     },
     {
-      "id": 2,
-      "data": "10/11/2018",
-      "descricao": "Alevinos de Surubim",
-      "categoria": "Alevinos",
-      "valorUnd": 1.5,
-      "quantidade": 1000
+      "data": "30/10/2018",
+      "descricao": "Ração Tambaqui",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "572.78",
+      "quantidade": "1",
+      "valorTotal": 572.78,
+      "id": 13
     },
     {
-      "id": 3,
+      "data": "30/10/2018",
+      "descricao": "Ração Pintado tanque A",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "969.5",
+      "quantidade": "1",
+      "valorTotal": 969.5,
+      "id": 14
+    },
+    {
+      "data": "30/10/2018",
+      "descricao": "Ração pintado tanque B",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "728.25",
+      "quantidade": "1",
+      "valorTotal": 728.25,
+      "id": 15
+    },
+    {
+      "data": "30/10/2018",
+      "descricao": "Frete",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "210.7",
+      "quantidade": "1",
+      "valorTotal": 210.7,
+      "id": 16
+    },
+    {
+      "data": "30/10/2018",
+      "descricao": "Sal",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "10",
+      "quantidade": "4",
+      "valorTotal": 40,
+      "id": 17
+    },
+    {
+      "data": "31/10/2018",
+      "descricao": "Linha 0.5mm 1083m",
+      "categoria": {
+        "id": 3,
+        "nome": "Infraestrutura",
+        "icone": {
+          "type": "i",
+          "key": null,
+          "ref": null,
+          "props": {
+            "className": "fa fa-building"
+          },
+          "_owner": null,
+          "_store": {}
+        }
+      },
+      "valorUnd": "20",
+      "quantidade": "3",
+      "valorTotal": 60,
+      "id": 18
+    },
+    {
+      "data": "01/11/2018",
+      "descricao": "Alevinos de caranha",
+      "categoria": {
+        "id": 2,
+        "nome": "Alevinos",
+        "icone": "",
+        "cor":"aqua"
+      },
+      "valorUnd": "0.25",
+      "quantidade": "100",
+      "valorTotal": 25,
+      "id": 19
+    },
+    {
       "data": "10/11/2018",
-      "descricao": "GuabiTech carnivoro 40%",
-      "categoria": "Ração",
-      "valorUnd": 1.5,
-      "quantidade": 1000
+      "descricao": "Sal",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "10",
+      "quantidade": "14",
+      "valorTotal": 140,
+      "id": 20
+    },
+    {
+      "data": "11/11/2018",
+      "descricao": "Terramicina",
+      "categoria":  {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "25",
+      "quantidade": "1",
+      "valorTotal": 25,
+      "id": 21
+    },
+    {
+      "data": "21/02/2019",
+      "descricao": "Pira Crescimento 9-11mm - 32%",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "46.80",
+      "quantidade": "15",
+      "valorTotal": 702,
+      "id": 22
+    },
+    {
+      "data": "21/02/2019",
+      "descricao": "Pira Acabamento 14mm - 28%",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "43.20",
+      "quantidade": "10",
+      "valorTotal": 432,
+      "id": 23
+    },
+    {
+      "data": "21/02/2019",
+      "descricao": "Guabitech Ideal Carnivoros 9-11mm",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "13",
+      "quantidade": "51.74",
+      "valorTotal": 672.62,
+      "id": 24
+    },
+    {
+      "data": "21/02/2019",
+      "descricao": "Pira Carnivoros 14mm-36%",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "51.74",
+      "quantidade": "5",
+      "valorTotal": 258.7,
+      "id": 25
+    },
+    {
+      "data": "21/02/2019",
+      "descricao": "Pira Carnivoros 9-11mm-36%",
+      "categoria": {
+        "id": 1,
+        "nome": "Ração",
+        "icone": "",
+        "cor":"green"
+      },
+      "valorUnd": "51.74",
+      "quantidade": "7",
+      "valorTotal": 362.18,
+      "id": 26
+    },
+    {
+      "data": "21/02/2019",
+      "descricao": "Sal ",
+      "categoria": {
+        "nome": "Outros",
+        "icone": "",
+        "id": 6,
+        "cor":"gray"
+      },
+      "valorUnd": "10",
+      "quantidade": "8",
+      "valorTotal": 80,
+      "id": 27
     }
   ],
   "categorias": [
     {
       "id": 1,
       "nome": "Ração",
-      "icone": "fa-archive"
+      "icone": "",
+      "cor":"green"
     },
     {
       "id": 2,
       "nome": "Alevinos",
-      "icone": ""
+      "icone": "",
+      "cor":"aqua"
     },
     {
       "id": 3,
       "nome": "Infraestrutura",
-      "icone": "fa-building"
+      "icone": "",
+      "cor":"brown"
     },
     {
       "id": 4,
       "nome": "Gasolina",
-      "icone": ""
+      "icone": "",
+      "cor":"orange"
     },
     {
-      "id": 5,
-      "nome": "Funcionários",
-      "icone": "fa-users"
-    },
-    {
-      "id": 6,
       "nome": "Outros",
-      "icone": {
-        "type": "i",
-        "key": null,
-        "ref": null,
-        "props": {
-          "className": "fa [object Object]"
-        },
-        "_owner": null,
-        "_store": {}
-      }
+      "icone": "",
+      "id": 6,
+      "cor":"gray"
+    },
+    {
+      "nome": "Funcionários",
+      "icone": "",
+      "id": 7,
+      "cor":"blue"
     }
   ]
 }

@@ -5,15 +5,52 @@ import {Doughnut, Line} from 'react-chartjs-2'
 import './ViewFinance.css'
 import InfoBox from '../templates/infoBox/InfoBox';
 import Box from '../templates/box/Box';
+import axios from 'axios'
 
+
+const baseUrl = 'http://192.168.1.8:3001/despesas'
+
+const initialState = {
+    expenses: { 
+                data: '',
+                descricao:'',                 
+                categoria:'', 
+                valorUnd:0, 
+                quantidade: 0, 
+                valorTotal:0 },
+    list: [],
+    listExpenses: []
+}
 
 export default class ViewFinance extends React.Component {
-    renderDataDog(){
+
+    state = { ...initialState } 
+
+    componentWillMount() {
+        axios(baseUrl).then(resp => {
+            const categoriasTotais = resp.data.map(obj => obj.categoria)
+            const categoriasPresentes = categoriasTotais.filter((este, i)=> categoriasTotais.map(obj => obj['id']).indexOf(este.id)=== i)
+            categoriasPresentes.map(obj => obj.gastoNaCategoria = 0 )
+            resp.data.map((obj, i) =>{
+                categoriasPresentes.map(valor => {
+                    if(valor.id == obj.categoria.id){
+                        valor.gastoNaCategoria = valor.gastoNaCategoria + obj.valorTotal
+                    }
+                })
+                return obj
+            } )            
+            this.setState({ list: categoriasPresentes })
+        })
+    }
+
+
+    renderDataDog(data){
+        //console.log(data)
         const dataDog = {
-            labels:['Red', 'Blue', 'Green'],
+            labels:data.map(obj=>obj.nome),
             datasets: [{                            
-                data: [300, 100, 1000],
-                backgroundColor: ['red', 'blue', 'green'],            
+                data: data.map(obj=>obj.gastoNaCategoria),
+                backgroundColor:data.map(obj => obj.cor),            
                 }]            
             }
         return dataDog
@@ -53,7 +90,7 @@ render(){
             {/* box-body */}
             <div className="row">
                 <Charts width={6} tipe={Doughnut} title='Despesas por categoria' 
-                    data ={this.renderDataDog}
+                    data ={this.renderDataDog(this.state.list)}
                         options={{cutoutPercentage:70}}
                 /> 
                 <Charts width={6} tipe={Line} title='Despesas ao longo do ciclo' 
