@@ -1,69 +1,13 @@
 {
   "despesas": [
     {
-      "data": "22/10/2018",
-      "descricao": "Saco de Calcário 25kg",
-      "categoria": {
-        "nome": "Outros",
-        "icone": "",
-        "id": 6,
-        "cor":"gray"
-      },
-      "valorUnd": "12",
-      "quantidade": "8",
-      "valorTotal": 96,
-      "id": 1
-    },
-    {
-      "data": "22/10/2018",
-      "descricao": "Cal hidratada",
-      "categoria": {
-        "nome": "Outros",
-        "icone": "",
-        "id": 6,
-        "cor":"gray"
-      },
-      "valorUnd": "20",
-      "quantidade": "4",
-      "valorTotal": 80,
-      "id": 2
-    },
-    {
-      "data": "22/10/2019",
-      "descricao": "Gasolina para buscar material",
-      "categoria": {
-        "id": 4,
-        "nome": "Gasolina",
-        "icone": "",
-        "cor":"orange"
-      },
-      "valorUnd": "30",
-      "quantidade": "1",
-      "valorTotal": 30,
-      "id": 3
-    },
-    {
-      "data": "25/10/2018",
-      "descricao": "Sal",
-      "categoria": {
-        "nome": "Outros",
-        "icone": "",
-        "id": 6,
-        "cor":"gray"
-      },
-      "valorUnd": "12",
-      "quantidade": "3",
-      "valorTotal": 36,
-      "id": 4
-    },
-    {
       "data": "26/10/2018",
       "descricao": "Ração Guabi alevinos 2-3mm 36%",
       "categoria": {
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "105",
       "quantidade": "2",
@@ -77,7 +21,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "129.26",
       "quantidade": "1",
@@ -91,7 +35,7 @@
         "id": 3,
         "nome": "Infraestrutura",
         "icone": "",
-        "cor":"brown"
+        "cor": "brown"
       },
       "valorUnd": "25",
       "quantidade": "2",
@@ -118,7 +62,7 @@
         "nome": "Outros",
         "icone": "",
         "id": 6,
-        "cor":"gray"
+        "cor": "gray"
       },
       "valorUnd": "49.20",
       "quantidade": "1",
@@ -132,7 +76,7 @@
         "id": 4,
         "nome": "Gasolina",
         "icone": "",
-        "cor":"orange"
+        "cor": "orange"
       },
       "valorUnd": "5.09",
       "quantidade": "30",
@@ -146,7 +90,7 @@
         "id": 2,
         "nome": "Alevinos",
         "icone": "",
-        "cor":"aqua"
+        "cor": "aqua"
       },
       "valorUnd": "1.5",
       "quantidade": "2000",
@@ -160,7 +104,7 @@
         "id": 2,
         "nome": "Alevinos",
         "icone": "",
-        "cor":"aqua"
+        "cor": "aqua"
       },
       "valorUnd": "0.35",
       "quantidade": "1000",
@@ -174,7 +118,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "572.78",
       "quantidade": "1",
@@ -188,7 +132,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "969.5",
       "quantidade": "1",
@@ -202,7 +146,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "728.25",
       "quantidade": "1",
@@ -216,7 +160,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "210.7",
       "quantidade": "1",
@@ -230,7 +174,7 @@
         "nome": "Outros",
         "icone": "",
         "id": 6,
-        "cor":"gray"
+        "cor": "gray"
       },
       "valorUnd": "10",
       "quantidade": "4",
@@ -266,7 +210,7 @@
         "id": 2,
         "nome": "Alevinos",
         "icone": "",
-        "cor":"aqua"
+        "cor": "aqua"
       },
       "valorUnd": "0.25",
       "quantidade": "100",
@@ -280,7 +224,7 @@
         "nome": "Outros",
         "icone": "",
         "id": 6,
-        "cor":"gray"
+        "cor": "gray"
       },
       "valorUnd": "10",
       "quantidade": "14",
@@ -290,11 +234,11 @@
     {
       "data": "11/11/2018",
       "descricao": "Terramicina",
-      "categoria":  {
+      "categoria": {
         "nome": "Outros",
         "icone": "",
         "id": 6,
-        "cor":"gray"
+        "cor": "gray"
       },
       "valorUnd": "25",
       "quantidade": "1",
@@ -308,7 +252,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "46.80",
       "quantidade": "15",
@@ -322,7 +266,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "43.20",
       "quantidade": "10",
@@ -336,7 +280,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "13",
       "quantidade": "51.74",
@@ -350,7 +294,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "51.74",
       "quantidade": "5",
@@ -364,7 +308,7 @@
         "id": 1,
         "nome": "Ração",
         "icone": "",
-        "cor":"green"
+        "cor": "green"
       },
       "valorUnd": "51.74",
       "quantidade": "7",
@@ -378,7 +322,7 @@
         "nome": "Outros",
         "icone": "",
         "id": 6,
-        "cor":"gray"
+        "cor": "gray"
       },
       "valorUnd": "10",
       "quantidade": "8",
@@ -391,37 +335,37 @@
       "id": 1,
       "nome": "Ração",
       "icone": "",
-      "cor":"green"
+      "cor": "green"
     },
     {
       "id": 2,
       "nome": "Alevinos",
       "icone": "",
-      "cor":"aqua"
+      "cor": "aqua"
     },
     {
       "id": 3,
       "nome": "Infraestrutura",
       "icone": "",
-      "cor":"brown"
+      "cor": "brown"
     },
     {
       "id": 4,
       "nome": "Gasolina",
       "icone": "",
-      "cor":"orange"
+      "cor": "orange"
     },
     {
       "nome": "Outros",
       "icone": "",
       "id": 6,
-      "cor":"gray"
+      "cor": "gray"
     },
     {
       "nome": "Funcionários",
       "icone": "",
       "id": 7,
-      "cor":"blue"
+      "cor": "blue"
     }
   ]
 }

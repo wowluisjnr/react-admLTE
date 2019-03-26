@@ -54,7 +54,7 @@ const initialState = {
                 data: '',
                 descricao:'',                 
                 categoria:'', 
-                valorUnd:0, 
+                valorUnd: 0, 
                 quantidade: 0, 
                 valorTotal:0 },
     list: [],
@@ -73,7 +73,7 @@ export default class Despesas extends React.Component{
             axios(baseUrl).then(resp => {
             let resultado = resp.data
             let somaTotal = 0
-            let categoria
+            //let categoria
             resultado.map( obj =>
                 {
                     Object.defineProperty(obj, 'valorTotal',{
@@ -123,6 +123,7 @@ export default class Despesas extends React.Component{
             expenses[event.target.name] = this.state.categorias.filter(cat => cat.id == event.target.value)[0]
         }
         else if(event.target.name == "data"){
+            //mudar pro save e pro upload. mudar tambem o save para não salvar valorTotal
             const dataNoFormat = event.target.value.split("-")
             let dataFormat = dataNoFormat[2]+"/"+dataNoFormat[1]+"/"+dataNoFormat[0]
             expenses[event.target.name]=dataFormat
@@ -143,7 +144,7 @@ export default class Despesas extends React.Component{
     }
 
 
-    renderForm(){
+    renderForm(){          
         return(
             <form>
             <div className="form-group">
@@ -152,7 +153,7 @@ export default class Despesas extends React.Component{
                     <div className="input-group-addon"><i className="fa fa-calendar"></i></div>
                     <input type="date" className="form-control pull-right" 
                     name="data" 
-                    //value={10/10/2019} //só aparecer quando editar
+                    value={"2019-10-10"} //só aparecer quando editar
                     onChange={e=>this.updateField(e)}
                     />
                 </div>
@@ -166,9 +167,9 @@ export default class Despesas extends React.Component{
             <div className="form-group">
                  <label> Categoria:</label>
                  <select className="form-control"
-                     name="categoria"  onChange={e=>this.updateField(e)}>
+                     name="categoria" value={this.state.expenses.categoria} onChange={e=>this.updateField(e)}>
                      {this.state.categorias.map( obj => 
-                         <option value={obj.id} key={obj.id}>{obj.nome}</option>  
+                         <option value={obj.nome} key={obj.id}>{obj.nome}</option>  
                      )}
                  </select>
              </div>
@@ -176,7 +177,7 @@ export default class Despesas extends React.Component{
             <div className="form-group">
                 <label> Valor unitário:</label>
                 <input type="number" className="form-control"
-                 name="valorUnd" value={this.state.expenses.valorUnd} onChange={e=>this.updateField(e)}/>
+                 name="valorUnd" value={moedaParaNumero(this.state.expenses.valorUnd)} onChange={e=>this.updateField(e)}/>
             </div>
             <div className="form-group">
                 <label> Quantidade:</label>
@@ -224,20 +225,20 @@ export default class Despesas extends React.Component{
         )
     }
 
-    editOrRemove(valor, removeIsTrue) {   
-        
+    editOrRemove(expenses, removeIsTrue) {        
         if(removeIsTrue) { 
-            const confirm = window.confirm(`Realmente deseja excluir a Despesa "${valor.descricao}"?`) 
+            const confirm = window.confirm(`Realmente deseja excluir a Despesa "${expenses.descricao}"?`) 
             if(confirm){  
-                let somaTotal = this.state.somaTotal - moedaParaNumero( valor.valorTotal)
+                let somaTotal = this.state.somaTotal - moedaParaNumero( expenses.valorTotal)
                 this.setState({somaTotal:somaTotal})          
-                axios.delete(`${baseUrl}/${valor.id}`).then(resp => {
-                    const list = this.getUpdatedList(valor, false)
+                axios.delete(`${baseUrl}/${expenses.id}`).then(resp => {
+                    const list = this.getUpdatedList(expenses, false)
                     this.setState({ list })
                 })}
         }
-        else
-            console.log("Editando",removeIsTrue)//Implementar edição
+        else{           
+            this.setState({ expenses, showModal:true })           
+        }
 
     }
 
